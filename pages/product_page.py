@@ -6,6 +6,8 @@ class ProductPage(BasePage):
     add_to_cart_btn_locator = (By.CLASS_NAME, "add-to-cart-btn")
     product_locator = (By.ID, "SalePageIndexController")
     product_name_locator = (By.CLASS_NAME, "salepage-title")
+    product_price_locator = (By.XPATH, "//div[contains(@class, 'salepage-price')]/span")
+    product_amount_locator = (By.XPATH, "//input[contains(@class, 'qty-number-input')]")
     quantity_btn_locator = (By.CLASS_NAME, "qty-wrapper")
     immediately_buy_btn_locator = (By.CLASS_NAME, "immediately-buy-btn")
     add_to_cart_success_locator = (By.XPATH, "//span[@data-qe-id='popup_msg' and contains(text(), '加入成功')]")
@@ -18,6 +20,12 @@ class ProductPage(BasePage):
     
     def get_product_title(self):
         return self.find_element(*self.product_name_locator).text
+    
+    def get_product_amount(self):
+        return self.find_element(*self.product_amount_locator).get_attribute('value')
+    
+    def get_product_price(self):
+        return self.find_element(*self.product_price_locator).text
     
     def is_add_to_cart_button_clickable(self):
         return self.wait_for_clickable(self.add_to_cart_btn_locator)

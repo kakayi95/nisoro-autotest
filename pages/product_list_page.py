@@ -12,7 +12,7 @@ class ProductListPage(BasePage):
         super().__init__(driver)
        
     def is_loaded(self):
-        return self.is_element_present(*self.product_list_locator)
+        return self.wait_for_visible(self.product_list_locator)
     
     def has_products(self):
         return len(self.find_elements(*self.product_item_locator)) > 0

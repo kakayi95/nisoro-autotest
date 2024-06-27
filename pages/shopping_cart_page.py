@@ -16,11 +16,13 @@ class ShoppingCartPage(BasePage):
         cart_item = self.find_element(*self.item_title_locator)
         return cart_item.text
    
-    def is_loaded(self):
-        return self.wait_for_visible(self.layer_container_locator) and \
-                self.wait_for_visible(self.item_title_locator) and \
-                self.wait_for_visible(self.item_price_locator) and \
-                self.wait_for_visible(self.item_amount_locator)
+    def is_cart_loaded(self):
+        return (
+            self.wait_for_visible(self.layer_container_locator) and
+            self.wait_for_visible(self.item_title_locator) and
+            self.wait_for_visible(self.item_price_locator) and
+            self.wait_for_visible(self.item_amount_locator)
+        )
     
     def get_product_amount(self):
         return len(self.find_elements(*self.products_locator))
