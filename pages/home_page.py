@@ -3,7 +3,7 @@ from selenium.webdriver.common.keys import Keys
 from pages.base_page import BasePage
 from pages.product_list_page import ProductListPage
 from pages.shopping_cart_page import ShoppingCartPage
-from utils.constants import BASE_URL
+from utils.constants import NISORO_URL
 
 class HomePage(BasePage):
 
@@ -17,7 +17,7 @@ class HomePage(BasePage):
         super().__init__(driver)       
 
     def open(self):
-        self.visit(BASE_URL)
+        self.visit(NISORO_URL)
     
     def enter_search_term(self, term):
         self.type_text(term, *self.search_box_locator)
