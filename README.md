@@ -12,13 +12,25 @@
 
 ## 使用工具
 
-- Python
+- Python3
 - Pytest
 - Selenium
 
+## 瀏覽器需求
+
+- Google Chrome 瀏覽器
+- ChromeDriver
+
+### 安裝 ChromeDriver
+
+1. 前往 [ChromeDriver 下載頁面](https://developer.chrome.com/docs/chromedriver?hl=zh-tw)。
+2. 下載與你的 Chrome 瀏覽器版本相匹配的 ChromeDriver。
+3. 解壓下載的文件，並將 ChromeDriver 可執行文件添加到系統 PATH 中。
+
+
 ## 專案結構
 
-採用頁面物件模型（Page Object Model, POM）設計模式來編寫自動化測試程式。每個網頁都有一個對應的頁面物件，封裝了與該頁面互動的方法（例如：元素定位、操作）。這樣的設計將測試邏輯與網頁介面的元素分離，提高測試程式的可讀性和維護性。
+採用頁面物件模型（Page Object Model, POM）的設計模式來編寫自動化測試程式。每個網頁都有一個對應的頁面物件，封裝了與該頁面互動的方法（例如：元素定位、操作）。這樣的設計將測試邏輯與網頁介面的元素分離，提高測試程式的可讀性和維護性。
 
 ```
 project_root/
@@ -31,7 +43,7 @@ project_root/
 │   ├── test_shopping_flow.py # 測試基本購物流程的功能
 ├── pages/                    # 頁面物件模型（Page Object Model，POM）目錄
 │   ├── __init__.py
-│   ├── base_page.py          # 為所有頁面對象提供通用的方法和工具（例如：find_element, click 等基本元素定位操作方法）
+│   ├── base_page.py          # 為所有頁面物件提供通用的方法和工具（例如：find_element, click 等基本元素定位操作方法）
 │   ├── home_page.py          # 首頁 POM
 │   ├── product_list_page.py  # 產品列表頁面 POM (搜尋後出現的產品列表)
 │   ├── product_page.py       # 產品詳情頁面 POM
@@ -87,7 +99,6 @@ project_root/
     ```
 
 5. **Running Tests**:
-    要運行測試，使用以下命令：
     ```sh
     pytest
     ```
